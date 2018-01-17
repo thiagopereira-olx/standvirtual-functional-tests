@@ -1,0 +1,20 @@
+machine:
+ ruby:
+   version: ruby-2.3.3
+ services:
+   - docker
+dependencies:
+ pre:
+   - sudo apt-get install libxss1 libappindicator1 libindicator7
+   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+   - sudo dpkg -i google-chrome*.deb
+   - sudo apt-get install -f
+   - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+   - sudo apt-get install jq nodejs curl -qy
+   - npm install -g chromedriver
+ override:
+   - gem install bundler
+   - cd functional/ui-functional-tests/; bundle install
+test:
+ override:
+   - cd functional/ui-functional-tests/cucumber; cucumber -p chrome -p stand --tags @register_new_user -f pretty -f rerun --out rerun.txt || true

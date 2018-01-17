@@ -1,0 +1,9 @@
+##YAML Template
+---
+default: -p chrome -p stand
+ci: -p html_report -p chrome_headles -p qaua
+html_report: --format pretty --format html --out=features_report.html
+firefox: BROWSER=firefox
+chrome: BROWSER=chrome
+chrome_headles: BROWSER=chrome_headles
+stand: ENVIRONMENT_TYPE=stand
