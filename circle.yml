@@ -14,7 +14,7 @@ dependencies:
    - npm install -g chromedriver
  override:
    - gem install bundler
-   - cd functional/ui-functional-tests/; bundle install
+   - cd Functional/ui-functional-tests/; bundle install
 test:
  override:
    - cd functional/ui-functional-tests/cucumber; cucumber -p chrome -p stand --tags @register_new_user -f pretty -f rerun --out rerun.txt || true
