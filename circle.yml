@@ -17,4 +17,4 @@ dependencies:
    - cd Functional/ui-functional-tests/; bundle install
 test:
  override:
-   - cd functional/ui-functional-tests/cucumber; cucumber -p chrome -p stand --tags @register_new_user -f pretty -f rerun --out rerun.txt || true
+   - cd Functional/ui-functional-tests/cucumber; cucumber -p chrome -p stand --tags @register_new_user -f pretty -f rerun --out rerun.txt || true
